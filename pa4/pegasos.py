@@ -1,15 +1,4 @@
 
-"""This file shows a couple of implementations of the perceptron learning
-algorithm. It is based on the code from Lecture 3, but using the slightly
-more compact perceptron formulation that we saw in Lecture 6.
-
-There are two versions: Perceptron, which uses normal NumPy vectors and
-matrices, and SparsePerceptron, which uses sparse vectors and matrices.
-The latter may be faster when we have high-dimensional feature representations
-with a lot of zeros, such as when we are using a "bag of words" representation
-of documents.
-"""
-
 import numpy as np
 from numpy import linalg as LA
 from scipy.linalg.blas import ddot

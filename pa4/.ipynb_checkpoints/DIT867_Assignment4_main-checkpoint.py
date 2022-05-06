@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "c866be33",
+   "id": "8cd58ab2",
    "metadata": {},
    "source": [
     "## DAT340/DIT867 Programming assignment 4: Implementing linear classifiers\n",
@@ -11,13 +11,16 @@
     "#### Bragadesh Bharatwaj Sundararaman\n",
     "#### Amogha Udayakumar\n",
     "\n",
+    "In order to run you need to have pegasos.py and doc_classification.py and the data in the same directory.\n",
     "\n",
-    "\n"
+    "pegasos.py contains the code for each classifier\n",
+    "\n",
+    "doc_classification.py runs the specified classifier\n"
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "2cf1ed06",
+   "id": "742fe616",
    "metadata": {},
    "source": [
     "### Question 1: Implementing the SVC Pegasos algorithm\n",
@@ -26,13 +29,13 @@
     "\n",
     "From this, Lambda was set to 1/T.\n",
     "\n",
-    "The code for the SVC pegasos classifier can be found in \"insert name\".py class Pegasos"
+    "The code for the SVC pegasos classifier can be found in pegasos.py class Pegasos"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "4d273c49",
+   "id": "c98e83f0",
    "metadata": {},
    "outputs": [
     {
@@ -57,21 +60,21 @@
   },
   {
    "cell_type": "markdown",
-   "id": "3753dbb4",
+   "id": "a840da85",
    "metadata": {},
    "source": [
     "### Question 2: Implementing the LR Pegasos algorithm\n",
     "\n",
     "We use the same number of iterations T and Lmabda as in the SVC case. \n",
     "\n",
-    "The code for the LR pegasos classifier can be found in \"insert name\".py class Pegasos_LR.\n",
+    "The code for the LR pegasos classifier can be found in pegasos.py class Pegasos_LR.\n",
     "When running the code the Pegasos_LR class will also output the value of the objective function for every 10 000 iterations."
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "673750e8",
+   "id": "9e0e2fff",
    "metadata": {},
    "outputs": [
     {
@@ -114,7 +117,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "1d798b8d",
+   "id": "c81bc164",
    "metadata": {},
    "source": [
     "As we can see, the pegasos algorithm using log loss instead of hinge loss is signiaficantly slower and achieves a lower accuracy. "
@@ -122,7 +125,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "d03c21fa",
+   "id": "1130e6e0",
    "metadata": {},
    "source": [
     "### Question 3\n",
@@ -132,18 +135,18 @@
   },
   {
    "cell_type": "markdown",
-   "id": "029bd019",
+   "id": "6789cec7",
    "metadata": {},
    "source": [
     "#### a) Faster linear algebra operations\n",
     "\n",
-    "The code for the SVC pegasos classifier using BLAS functions can be found in \"insert name\".py class Pegasos_BLAS."
+    "The code for the SVC pegasos classifier using BLAS functions can be found in pegasos.py class Pegasos_BLAS."
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "1f9b389a",
+   "id": "b197947d",
    "metadata": {},
    "outputs": [
     {
@@ -168,7 +171,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "584648de",
+   "id": "9f0d6146",
    "metadata": {},
    "source": [
     "Using the BLAS function helped speed up the linear algebra operations.\n",
@@ -177,7 +180,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "15d5bc28",
+   "id": "fee5f447",
    "metadata": {},
    "source": [
     "#### b) Using sparse vectors\n",
@@ -188,7 +191,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "45422bc1",
+   "id": "b695a4c0",
    "metadata": {},
    "outputs": [
     {
@@ -208,20 +211,20 @@
   },
   {
    "cell_type": "markdown",
-   "id": "8dbe87b0",
+   "id": "b9f268d9",
    "metadata": {},
    "source": [
     "The accuracy has increased a bit, which is expected since we are utlizing a larger set fo features. However, the training time has increased significantly!\n",
     "\n",
     "Next step is to try the sparse version of SVC pegasos:\n",
     "\n",
-    "The code for the sparse SVC pegasos classifier can be found in \"insert name\".py class SparsePegasos."
+    "The code for the sparse SVC pegasos classifier can be found in pegasos.py class SparsePegasos."
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "d4ea66a1",
+   "id": "46c9a76c",
    "metadata": {},
    "outputs": [
     {
@@ -246,7 +249,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "c226f5df",
+   "id": "7fd9e1ab",
    "metadata": {},
    "source": [
     "By using sparse vectors we managed to decrease the training time from 453 seconds to 126 seconds while maintaining the accuracy."
@@ -254,18 +257,18 @@
   },
   {
    "cell_type": "markdown",
-   "id": "4ab7d123",
+   "id": "1cfcf271",
    "metadata": {},
    "source": [
     "#### c) Speeding up the scaling operation\n",
     "\n",
-    "The code for the sparse SVC pegasos classifier with the scaling trick can be found in \"insert name\".py class SparsePegasos_scale."
+    "The code for the sparse SVC pegasos classifier with the scaling trick can be found in pegasos.py class SparsePegasos_scale."
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "3f8728de",
+   "id": "387ccfb0",
    "metadata": {},
    "outputs": [
     {
@@ -291,7 +294,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "0c46b4f9",
+   "id": "ac84651f",
    "metadata": {},
    "source": [
     "With the sclaing trick the training time was dramatically reduced, from 126.89 seconds to 7.11 seconds, again the accuracy is maintained at approximately the same level (it varies because of the randomness in sampling at each iteration T)."
