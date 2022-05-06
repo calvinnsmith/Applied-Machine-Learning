@@ -212,7 +212,7 @@ class Pegasos_LR(LinearClassifier):
             
             sum_loss = sum_loss + np.sum(loss)
             
-            self.w = self.w - (nu*loss)
+            self.w = self.w - nu*(Lambda*self.w +loss)
             
             # printing current value of the objective function at each iteration.
             if t == epochs:

@@ -36,12 +36,12 @@ if __name__ == '__main__':
 
     # Set up the preprocessing steps and the classifier.
     pipeline = make_pipeline(
-        TfidfVectorizer(ngram_range = (1,2)),
-        #SelectKBest(k=1000),
+        TfidfVectorizer(),
+        SelectKBest(k=1000),
         Normalizer(),
 
         # Choose wich classifier to use
-        SparsePegasos_scale()
+        Pegasos_LR()
     )
 
     # Train the classifier.
