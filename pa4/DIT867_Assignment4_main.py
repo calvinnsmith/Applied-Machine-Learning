@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "d9ee4152",
+   "id": "e2d7429a",
    "metadata": {},
    "source": [
     "## DAT340/DIT867 Programming assignment 4: Implementing linear classifiers\n",
@@ -20,7 +20,16 @@
   },
   {
    "cell_type": "markdown",
-   "id": "a17a6bdd",
+   "id": "e43eed5d",
+   "metadata": {},
+   "source": [
+    "### Exercise question:\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5db5f0c2",
    "metadata": {},
    "source": [
     "### Question 1: Implementing the SVC Pegasos algorithm\n",
@@ -35,7 +44,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "15625a5f",
+   "id": "cad1e647",
    "metadata": {},
    "outputs": [
     {
@@ -60,7 +69,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "8f911d83",
+   "id": "b343b5ff",
    "metadata": {},
    "source": [
     "### Question 2: Implementing the LR Pegasos algorithm\n",
@@ -74,7 +83,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "3ee3fc62",
+   "id": "f51248b0",
    "metadata": {},
    "outputs": [
     {
@@ -117,7 +126,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "d1c6d0fa",
+   "id": "2c2679f5",
    "metadata": {},
    "source": [
     "Using the log-loss function raises the accuarcy slightly (0.8355) but with an increased training time (5.81 seconds)."
@@ -125,7 +134,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "6eb8273d",
+   "id": "83561c75",
    "metadata": {},
    "source": [
     "### Question 3\n",
@@ -135,7 +144,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "02fb620a",
+   "id": "655d0c44",
    "metadata": {},
    "source": [
     "#### a) Faster linear algebra operations\n",
@@ -146,7 +155,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "8fe9c7e5",
+   "id": "b7c0e5bb",
    "metadata": {},
    "outputs": [
     {
@@ -171,7 +180,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "aabe3f5a",
+   "id": "c64c55f4",
    "metadata": {},
    "source": [
     "Using the BLAS function helped speed up the linear algebra operations.\n",
@@ -180,7 +189,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "d36f671b",
+   "id": "a98953bd",
    "metadata": {},
    "source": [
     "#### b) Using sparse vectors\n",
@@ -191,7 +200,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "130ffb8c",
+   "id": "b02bac98",
    "metadata": {},
    "outputs": [
     {
@@ -211,7 +220,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "5523a9ee",
+   "id": "3c0f906a",
    "metadata": {},
    "source": [
     "The accuracy has increased a bit, which is expected since we are utlizing a larger set fo features. However, the training time has increased significantly!\n",
@@ -224,7 +233,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "e2b38cff",
+   "id": "09a6388a",
    "metadata": {},
    "outputs": [
     {
@@ -249,7 +258,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "ba60dc9a",
+   "id": "10e82922",
    "metadata": {},
    "source": [
     "By using sparse vectors we managed to decrease the training time from 453 seconds to 126 seconds while maintaining the accuracy."
@@ -257,7 +266,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "8eee44fd",
+   "id": "19b5de2d",
    "metadata": {},
    "source": [
     "#### c) Speeding up the scaling operation\n",
@@ -268,7 +277,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "0db04f3f",
+   "id": "1fa0743d",
    "metadata": {},
    "outputs": [
     {
@@ -294,7 +303,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "3d1135fc",
+   "id": "95896ab0",
    "metadata": {},
    "source": [
     "With the sclaing trick the training time was dramatically reduced, from 126.89 seconds to 7.11 seconds, again the accuracy is maintained at approximately the same level (it varies because of the randomness in sampling at each iteration T)."

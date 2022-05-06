@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "8cd58ab2",
+   "id": "e2d7429a",
    "metadata": {},
    "source": [
     "## DAT340/DIT867 Programming assignment 4: Implementing linear classifiers\n",
@@ -20,7 +20,16 @@
   },
   {
    "cell_type": "markdown",
-   "id": "742fe616",
+   "id": "e43eed5d",
+   "metadata": {},
+   "source": [
+    "### Exercise question:\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5db5f0c2",
    "metadata": {},
    "source": [
     "### Question 1: Implementing the SVC Pegasos algorithm\n",
@@ -35,7 +44,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "c98e83f0",
+   "id": "cad1e647",
    "metadata": {},
    "outputs": [
     {
@@ -60,7 +69,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "a840da85",
+   "id": "b343b5ff",
    "metadata": {},
    "source": [
     "### Question 2: Implementing the LR Pegasos algorithm\n",
@@ -74,14 +83,14 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "9e0e2fff",
+   "id": "f51248b0",
    "metadata": {},
    "outputs": [
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/Users/calvinsmith/Documents/GitHub/DIT867/pa4/aml_perceptron.py:288: RuntimeWarning: overflow encountered in exp\n",
+      "/Users/calvinsmith/Documents/GitHub/DIT867/pa4/pegasos.py:211: RuntimeWarning: overflow encountered in exp\n",
       "  loss = -(y*x)/(1+ np.exp(y*score))\n"
      ]
     },
@@ -89,18 +98,18 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "20364.34700378437\n",
-      "19973.933517841913\n",
-      "19751.76555927134\n",
-      "19601.005436695148\n",
-      "19483.779631821726\n",
-      "19384.87179624081\n",
-      "19305.215018573053\n",
-      "19237.228124216846\n",
-      "19180.36177416018\n",
-      "19126.13775417849\n",
-      "Training time: 5.70 sec.\n",
-      "Accuracy: 0.6735.\n"
+      "0.2675010157234912\n",
+      "0.1043776546210023\n",
+      "0.07118363907607979\n",
+      "0.05743785711342846\n",
+      "0.05142953244987731\n",
+      "0.0481444186941109\n",
+      "0.04537223340360722\n",
+      "0.04399605488588447\n",
+      "0.04237771038019213\n",
+      "0.0417509805702854\n",
+      "Training time: 5.81 sec.\n",
+      "Accuracy: 0.8355.\n"
      ]
     }
    ],
@@ -117,15 +126,15 @@
   },
   {
    "cell_type": "markdown",
-   "id": "c81bc164",
+   "id": "2c2679f5",
    "metadata": {},
    "source": [
-    "As we can see, the pegasos algorithm using log loss instead of hinge loss is signiaficantly slower and achieves a lower accuracy. "
+    "Using the log-loss function raises the accuarcy slightly (0.8355) but with an increased training time (5.81 seconds)."
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "1130e6e0",
+   "id": "83561c75",
    "metadata": {},
    "source": [
     "### Question 3\n",
@@ -135,7 +144,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "6789cec7",
+   "id": "655d0c44",
    "metadata": {},
    "source": [
     "#### a) Faster linear algebra operations\n",
@@ -146,7 +155,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "b197947d",
+   "id": "b7c0e5bb",
    "metadata": {},
    "outputs": [
     {
@@ -171,7 +180,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "9f0d6146",
+   "id": "c64c55f4",
    "metadata": {},
    "source": [
     "Using the BLAS function helped speed up the linear algebra operations.\n",
@@ -180,7 +189,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "fee5f447",
+   "id": "a98953bd",
    "metadata": {},
    "source": [
     "#### b) Using sparse vectors\n",
@@ -191,7 +200,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "b695a4c0",
+   "id": "b02bac98",
    "metadata": {},
    "outputs": [
     {
@@ -211,7 +220,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "b9f268d9",
+   "id": "3c0f906a",
    "metadata": {},
    "source": [
     "The accuracy has increased a bit, which is expected since we are utlizing a larger set fo features. However, the training time has increased significantly!\n",
@@ -224,7 +233,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "46c9a76c",
+   "id": "09a6388a",
    "metadata": {},
    "outputs": [
     {
@@ -249,7 +258,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "7fd9e1ab",
+   "id": "10e82922",
    "metadata": {},
    "source": [
     "By using sparse vectors we managed to decrease the training time from 453 seconds to 126 seconds while maintaining the accuracy."
@@ -257,7 +266,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "1cfcf271",
+   "id": "19b5de2d",
    "metadata": {},
    "source": [
     "#### c) Speeding up the scaling operation\n",
@@ -268,7 +277,7 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "387ccfb0",
+   "id": "1fa0743d",
    "metadata": {},
    "outputs": [
     {
@@ -294,7 +303,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "ac84651f",
+   "id": "95896ab0",
    "metadata": {},
    "source": [
     "With the sclaing trick the training time was dramatically reduced, from 126.89 seconds to 7.11 seconds, again the accuracy is maintained at approximately the same level (it varies because of the randomness in sampling at each iteration T)."
