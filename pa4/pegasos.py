@@ -95,6 +95,8 @@ class Pegasos(LinearClassifier):
         
         for t in range(1,T+1):
             i = np.random.randint(1,len(X))
+            
+            #learning rate
             nu = 1/(Lambda*t)
 
             x = X[i]
@@ -145,6 +147,8 @@ class Pegasos_BLAS(LinearClassifier):
         
         for t in range(1,T+1):
             i = np.random.randint(1,len(X))
+            
+            #learning rate
             nu = 1/(Lambda*t)
 
             x = X[i]
@@ -202,6 +206,7 @@ class Pegasos_LR(LinearClassifier):
         
         for t in range(1,T+1):
             i = np.random.randint(1,len(X))
+            #learning rate
             nu = 1/(Lambda*t)
 
             x = X[i]
@@ -217,7 +222,8 @@ class Pegasos_LR(LinearClassifier):
             # printing current value of the objective function at each iteration.
             if t == epochs:
                 epochs = epochs + 10000
-                print(sum_loss/t + (Lambda/2)*((LA.norm(self.w))**2))
+                
+                print(f'Objective function at {t}:{sum_loss/t + (Lambda/2)*((LA.norm(self.w))**2)}')
                    
                            
             
@@ -281,6 +287,8 @@ class SparsePegasos(LinearClassifier):
         
         for t in range(1,T+1):
             i = np.random.randint(1,len(XY))
+            
+            #learning rate
             nu = 1/(Lambda*t)
 
             x = XY[i][0]
@@ -341,6 +349,8 @@ class SparsePegasos_scale(LinearClassifier):
         
         for t in range(1,T+1):
             i = np.random.randint(1,len(XY))
+            
+            #learning rate
             nu = 1/(Lambda*t)
 
             x = XY[i][0]
