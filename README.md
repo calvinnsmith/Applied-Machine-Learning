@@ -3,7 +3,7 @@ This repository contains various machine learning projects based on the course A
 
 ## Projects:
 ### PA1: basic ML workflow and decision trees.
-[a relative link](PA1.md)
+[link](https://github.com/calvinnsmith/Applied-Machine-Learning/tree/main/PA1)
 ### PA2: Random Forests. Primarily investigating overfitting, underfitting and variable importance in RF models.
 ### PA3: Using a naive Bayes classifier to classify restaurant reviews as either positive or negative.
 ### PA4: Implementing linear classifiers.
