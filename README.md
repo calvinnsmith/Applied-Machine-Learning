@@ -9,6 +9,6 @@ This repository contains various machine learning projects based on the course A
 ### PA3: Using a naive Bayes classifier to classify restaurant reviews as either positive or negative.
 [link to PA3](https://github.com/calvinnsmith/Applied-Machine-Learning/tree/main/PA3)
 ### PA4: Implementing linear classifiers.
-[link to PA4](https://github.com/calvinnsmith/Applied-Machine-Learning/tree/main/PA4)
+[link to PA4](https://github.com/calvinnsmith/Applied-Machine-Learning/tree/main/pa4)
 ### PA5: Building and trainings CNN's for image classification. Using TensorFlow and Keras.
 [link to PA5](https://github.com/calvinnsmith/Applied-Machine-Learning/tree/main/PA5)
